@@ -24,7 +24,6 @@ const Registration_form = () => {
     e.preventDefault();
 
     const formData = {
-
       name: e.target.name.value,
       email: e.target.email.value,
       phoneno: e.target.phoneno.value,
@@ -41,7 +40,6 @@ const Registration_form = () => {
     };
 
     try {
-      // ✅ Send email via EmailJS
       await emailjs.sendForm(
         "service_hdtw0pa",
         "template_7680psu",
@@ -56,12 +54,8 @@ const Registration_form = () => {
       toast.error("Error sending email");
       setStatus("Error sending email");
     }
-
-    const url =
-      "https://script.google.com/macros/s/AKfycbx10GRFjHJ6Ct0iC92Nq79DQiVSbpOKEaY4k8AOMUKx5kkMjsZfmMLotV9Jf39X9aR2wg/exec";
-
+    const url = "https://script.google.com/macros/s/AKfycbx10GRFjHJ6Ct0iC92Nq79DQiVSbpOKEaY4k8AOMUKx5kkMjsZfmMLotV9Jf39X9aR2wg/exec";
     try {
-      // ✅ Send data to Google Sheets
       const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(formData),
@@ -102,7 +96,6 @@ const Registration_form = () => {
           />
         </div>
 
-        {/* EMAIL */}
         <div className="mb-5">
           <label className="block text-gray-700 mb-2 flex items-center gap-2 font-medium">
           <FaEnvelope className="text-blue-500" />
@@ -116,9 +109,7 @@ const Registration_form = () => {
             className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none transition"
           />
         </div>
-        
 
-        {/* PHONE */}
         <div className="mb-5">
           <label className="block text-gray-700 mb-2 flex items-center gap-2 font-medium">
           <FaPhone className="text-blue-500" />
@@ -133,7 +124,6 @@ const Registration_form = () => {
           />
         </div>
 
-        {/* GENDER */}
         <div className="mb-5">
           <label className="block text-gray-700 mb-2 flex items-center gap-2 font-medium">
           <FaVenusMars className="text-blue-500" />
@@ -158,7 +148,6 @@ const Registration_form = () => {
           </div>
         </div>
 
-        {/* DOB */}
         <div className="mb-5">
           <label className="block text-gray-700 mb-2 flex items-center gap-2 font-medium">
           <FaCalendarAlt className="text-blue-500" />
@@ -172,7 +161,6 @@ const Registration_form = () => {
           />
         </div>
 
-        {/* ADDRESS */}
         <div className="mb-5">
           <label className="block text-gray-700 mb-2 flex items-center gap-2 font-medium">
           <FaHome className="text-blue-500" />
@@ -187,7 +175,6 @@ const Registration_form = () => {
           />
         </div>
 
-        {/* CITY */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
           <div>
             <label className="block text-gray-700 mb-2 flex items-center gap-2 font-medium">
@@ -217,7 +204,6 @@ const Registration_form = () => {
           </div>
         </div>
 
-        {/* COUNTRY & PINCODE */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
           <div>
             <label className="block text-gray-700 mb-2 flex items-center gap-2 font-medium">
@@ -259,7 +245,7 @@ const Registration_form = () => {
             className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none transition"
           />
         </div>
-        {/* MESSAGE */}
+
         <div className="mb-8">
           <label className="block text-gray-700 mb-2 flex items-center gap-2 font-medium">
           <FaComment className="text-blue-500" />
@@ -274,14 +260,12 @@ const Registration_form = () => {
           />
         </div>
 
-        {/* HIDDEN TIME FIELD */}
         <input
           type="hidden"
           name="time"
           value={new Date().toISOString()}
         />
         
-        {/* BUTTON */}
         <div className="flex justify-center">
           <button
             type="submit"
@@ -291,7 +275,6 @@ const Registration_form = () => {
           </button>
         </div>
 
-        {/* STATUS TEXT (Optional) */}
         {status && (
           <p className="text-center mt-4 text-sm text-gray-600">{status}</p>
         )}
